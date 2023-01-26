@@ -1,3 +1,5 @@
+from .poset import Poset
+
 class Vertex(object):
     """
         Base class for vertices.
@@ -23,6 +25,17 @@ class Vertex(object):
         self.data = data
         self.__index = None
         
+    def __lt__(self, v):
+        return 0
+
+    def __gt__(self, v):
+        return 0
+
+    def __le__(self, v):
+        return 0
+
+    def __ge__(self, v):
+        return 0
 
     def degree(self):
         return len(self.e)
@@ -75,4 +88,4 @@ class Vertex(object):
         return self.data
     
     def __repr__(self):
-        return str(self.data)
+        return self.data

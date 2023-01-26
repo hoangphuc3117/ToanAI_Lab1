@@ -26,9 +26,9 @@ class Poset(object):
         if obj is None:
             raise ValueError
         if obj in self:
-            return self.get(obj)
+            return self.get(str(obj))
         else:
-            self.o[obj] = obj
+            self.o[str(obj)] = obj
             return obj
 
     def remove(self, obj):
@@ -126,7 +126,10 @@ class Poset(object):
         return p
 
     def __contains__(self, obj):
-        return obj in self.o
+        for o in self.o:
+            if(str(o) == str(obj)):
+                return True
+        return False
 
     def contains__cmp__(self, obj):
         return obj in self.o.values()
