@@ -51,6 +51,18 @@ class Graph(object):
             raise ValueError
         for e in edges:
             self.add_edge(e)
+
+    def vertices(self):
+        for v in self.verticesPoset:
+            yield v
+    
+    def get_vertex_from_data(self, data):
+        if data is None:
+            return None
+        for v in self.vertices():
+            if v.data is not None and str(v.data) == str(data):
+                return v
+        return None
         
     
     def find_child_path(self, start_vertex):
@@ -71,6 +83,9 @@ class Graph(object):
                 new_path.append(child) 
                 queue.append(new_path)
         return list(child_paths)
+    
+    def is_directed(self):
+        return self.directed
     
     def BFS(self, start_vertex): 
         queue = deque()

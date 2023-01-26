@@ -8,22 +8,16 @@ class GraphVisualization(object):
     def loadGraph(self, graph):
         self.graph = graph
 
-    def networkxUnGraph(self):
+    def networkx(self):
         edges = list(self.graph.edges())
         if self.graph is None or len(edges) == 0:
             return None
-        dg = nx.Graph()
+        if self.graph.is_directed():
+            dg = nx.Graph()
+        else:
+            dg = nx.DiGraph()
         for e in edges:
             dg.add_edge(str(e.v[0]), str(e.v[1]))
         return dg
-
-    def networkxDiGraph(self):
-        edges = list(self.graph.edges())
-        if self.graph is None or len(edges) == 0:
-            return None
         
-        dg = nx.DiGraph()
-        for e in edges:
-            dg.add_edge(str(e.v[0]), str(e.v[1]))
-        return dg
         
