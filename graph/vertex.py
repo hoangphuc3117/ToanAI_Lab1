@@ -1,5 +1,3 @@
-from .poset import Poset
-
 class Vertex(object):
     """
         Base class for vertices.
