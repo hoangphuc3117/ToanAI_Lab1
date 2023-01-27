@@ -13,7 +13,7 @@ class Edge(object):
 
     data: object
 
-    def __init__(self, x, y, data = None):
+    def __init__(self, x, y, w = 0, data = None):
         """
         Creates a new edge.
         :param x: source vertex
