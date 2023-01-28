@@ -62,8 +62,7 @@ class Graph(object):
         for v in self.vertices():
             if v.data is not None and str(v.data) == str(data):
                 return v
-        return None
-        
+        return None     
     
     def find_child_path(self, start_vertex):
         queue = deque()

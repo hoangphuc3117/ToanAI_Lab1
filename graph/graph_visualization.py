@@ -13,9 +13,9 @@ class GraphVisualization(object):
         if self.graph is None or len(edges) == 0:
             return None
         if self.graph.is_directed():
-            dg = nx.Graph()
-        else:
             dg = nx.DiGraph()
+        else:
+            dg = nx.Graph()
         for e in edges:
             dg.add_edge(str(e.v[0]), str(e.v[1]))
         return dg
