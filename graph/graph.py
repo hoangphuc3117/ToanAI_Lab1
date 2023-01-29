@@ -97,7 +97,11 @@ class Graph(object):
                 continue 
             visited.add(vertex) 
             child_paths.add(vertex)
-            for e in vertex.e_dir(0):
+            if self.directed:
+                edges = vertex.e_out()
+            else:
+                edges = vertex.e_dir(0)
+            for e in edges:
                 if e.v[0] == vertex:
                     child = e.v[1]
                 else:

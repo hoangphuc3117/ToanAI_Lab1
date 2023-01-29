@@ -39,10 +39,10 @@ class Vertex(object):
         return len(self.e)
     
     def e_in(self):
-        return list(filter(lambda e : e.v[1] == self), self.e)
+        return list(filter(lambda e : e.v[1] == self, self.e))
     
     def e_out(self):
-        return list(filter(lambda e: e.v[0] == self), self.e)
+        return list(filter(lambda e : e.v[0] == self, self.e))
     
     def e_dir(self, dir):
         if dir > 0:
